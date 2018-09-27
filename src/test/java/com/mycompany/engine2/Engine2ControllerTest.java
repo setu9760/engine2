@@ -47,7 +47,7 @@ public class Engine2ControllerTest {
     @Test
     public void testHello() throws Exception {
     	when(template.getForObject(anyString(), eq(String.class))).thenReturn("{\"msg\" : \"hello abcd\"}");
-    	mvc.perform(get("/engine2/api/hello/abcd"))
+    	mvc.perform(get("/api/hello/abcd"))
     		.andExpect(status().isOk())
     		.andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8))
     		.andExpect(jsonPath("$.msg", is("hello abcd")))
@@ -57,7 +57,7 @@ public class Engine2ControllerTest {
     @Test
     public void testGetModelA() throws Exception {
     	when(template.getForEntity(anyString(), eq(ModelA.class))).thenReturn(new ResponseEntity<>(new ModelA("abcd", 1), HttpStatus.OK));
-    	mvc.perform(get("/engine2/api/modela/abcd"))
+    	mvc.perform(get("/api/modela/abcd"))
 	    	.andExpect(status().isOk())
 			.andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8))
 			.andExpect(jsonPath("$.name", is("abcd")))
@@ -68,7 +68,7 @@ public class Engine2ControllerTest {
     @Test
     public void testGetModelB() throws Exception {
     	when(template.getForEntity(anyString(), eq(ModelB.class))).thenReturn(new ResponseEntity<>(new ModelB("abcd", 1), HttpStatus.OK));
-    	mvc.perform(get("/engine2/api/modelb/abcd"))
+    	mvc.perform(get("/api/modelb/abcd"))
 	    	.andExpect(status().isOk())
 			.andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8))
 			.andExpect(jsonPath("$.name", is("abcd")))

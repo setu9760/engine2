@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
 	<parent>
@@ -10,7 +12,7 @@
 
 	<groupId>com.mycompany.app</groupId>
 	<artifactId>engine2</artifactId>
-	<packaging>jar</packaging>
+	<packaging>war</packaging>
 	<version>1.0-SNAPSHOT</version>
 
 	<scm>
@@ -20,8 +22,10 @@
 	</scm>
 
 	<properties>
+		<start-class>com.mycompany.engine2.Engine2Application</start-class>
+		<failOnMissingWebXml>false</failOnMissingWebXml>
 		<maven.compiler.source>1.7</maven.compiler.source>
-    	<maven.compiler.target>1.7</maven.compiler.target>
+		<maven.compiler.target>1.7</maven.compiler.target>
 	</properties>
 
 	<dependencies>
@@ -29,7 +33,7 @@
 			<groupId>com.mycompany.app</groupId>
 			<artifactId>common</artifactId>
 			<version>1.0-SNAPSHOT</version>
-		</dependency>	
+		</dependency>
 		<dependency>
 			<groupId>com.mycompany.app</groupId>
 			<artifactId>engine1-common</artifactId>
@@ -44,6 +48,11 @@
 					<artifactId>spring-boot-starter-logging</artifactId>
 				</exclusion>
 			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-tomcat</artifactId>
+			<scope>provided</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -86,7 +95,7 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
-		</dependency>		
+		</dependency>
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-test</artifactId>
@@ -102,7 +111,7 @@
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
-	
+
 	<dependencyManagement>
 		<dependencies>
 			<dependency>
@@ -114,7 +123,7 @@
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
-	
+
 	<build>
 		<finalName>engine2</finalName>
 		<plugins>

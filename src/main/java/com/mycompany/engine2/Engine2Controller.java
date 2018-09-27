@@ -15,7 +15,7 @@ import com.mycompany.app.common.model.ModelA;
 import com.mycompany.app.common.model.ModelB;
 
 @RestController
-@RequestMapping(path = "/engine2/api", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+@RequestMapping(path = "/api", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
 public class Engine2Controller {
 
 	private RestTemplate restTemplate;
