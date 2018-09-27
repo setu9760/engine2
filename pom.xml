@@ -116,6 +116,7 @@
 	</dependencyManagement>
 	
 	<build>
+		<finalName>engine2</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.jacoco</groupId>
